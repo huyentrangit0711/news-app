@@ -1,4 +1,5 @@
 # news-app
+# demo use newsapi.org
 
 ## Project setup
 ```
