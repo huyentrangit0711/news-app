@@ -11,11 +11,11 @@
 				name="radio"
 				class="hidden"
 				:value="option"
-				v-model="filterOptions"
+				v-model="filterValue"
 			/>
 			<label :for="index" class="flex items-center cursor-pointer text-xl">
 				<span
-					class="bg-white-600 bg-opacity-100 rounded-lg text-black p-2 border-black border"
+					class="bg-white-600 bg-opacity-100 rounded-full text-black p-2 border-black border-2"
 				>
 					{{ option }}
 				</span>
@@ -30,19 +30,26 @@ export default {
 	data() {
 		return {
 			avaiableOption: ['bitcoin', 'apple', 'earthquake', 'animal'],
-			filterOptions: null,
+			filterValue: null,
 		};
 	},
 	components: {},
+	watch: {
+		filterValue: function (val) {
+			this.$emit('filterChange', val);
+			localStorage.setItem('filter', val);
+		},
+	},
+	mounted() {
+		if (localStorage.getItem('filter')) {
+			this.filterValue = localStorage.getItem('filter');
+		}
+	},
 };
 </script>
 
 <style>
 input[type='radio']:checked + label span {
-	@apply bg-green-600 text-white;
-}
-input[type='radio'] + label span:hover,
-input[type='radio'] + label:hover span {
-	transform: scale(1.2);
+	@apply bg-green-600 text-white border-green-600;
 }
 </style>

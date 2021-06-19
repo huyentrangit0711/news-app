@@ -1,8 +1,8 @@
 <template>
 	<div id="app" class="container mx-auto px-4">
-		<news-list></news-list>
-		<custom-news-list></custom-news-list>
-		<profile></profile>
+		<div class="bg-white">
+			<base-tab :tabHeaders="tabHeaders" :tabContents="tabContents"></base-tab>
+		</div>
 	</div>
 </template>
 
@@ -10,12 +10,20 @@
 import NewsList from '@/pages/NewsList.vue';
 import CustomNewsList from './pages/CustomNewsList.vue';
 import Profile from './pages/Profile.vue';
+import BaseTab from './components/UI/BaseTab.vue';
 export default {
 	name: 'App',
 	components: {
-		NewsList,
-		CustomNewsList,
-		Profile,
+		// NewsList,
+		// CustomNewsList,
+		// Profile,
+		BaseTab,
+	},
+	data() {
+		return {
+			tabContents: [NewsList, CustomNewsList, Profile],
+			tabHeaders: ['Top Headlines', 'Custom news', 'Profile'],
+		};
 	},
 };
 </script>
