@@ -1,6 +1,6 @@
 <template>
 	<div class="profile-tab">
-		<h1>Profile tab</h1>
+		<h1>Profile</h1>
 		<register-form v-if="!isLoggedIn"></register-form>
 		<welcome-page v-else></welcome-page>
 	</div>

@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 export default {
 	name: 'BaseTab',
 	props: {
@@ -36,17 +37,17 @@ export default {
 		},
 		tabContents: {
 			type: Array,
-			// require: true,
+			require: true,
 		},
 	},
-	data() {
-		return {
-			activeTab: 0,
-		};
+	computed: {
+		...mapGetters(['activeTab']),
 	},
 	methods: {
+		...mapActions(['updateActiveTabs']),
 		onActiveTab(index) {
-			this.activeTab = index;
+			this.updateActiveTabs({ value: index });
+			this.$router.push('/news');
 		},
 	},
 };

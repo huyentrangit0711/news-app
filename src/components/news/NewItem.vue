@@ -7,6 +7,7 @@
 				{{ article.description }}
 			</p>
 		</div>
+		<router-link :to="newDetailLink">View News </router-link>
 	</div>
 </template>
 
@@ -15,6 +16,14 @@ export default {
 	name: 'NewItem',
 	props: ['article'],
 	components: {},
+	computed: {
+		newDetailLink() {
+			return {
+				name: 'new-detail',
+				params: { newId: this.article.id },
+			};
+		},
+	},
 };
 </script>
 

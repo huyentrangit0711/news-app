@@ -4,20 +4,6 @@ const DATA_API_URL = 'https://newsapi.org/v2/';
 export default axios.create({
 	baseURL: process.env.DATA_API_URL,
 });
-// export const getOrdersLength = async () => {
-// 	const res = await axios.get(`http://localhost:3001/orders`);
-// 	const length = res.data && res.data.length;
-// 	return length;
-// };
-// export const getOrdersWithSort = async (
-// 	fieldName: string = 'updated_time',
-// 	order: string = 'desc'
-// ) => {
-// 	const ordersWithSorted = await axios.get(
-// 		`http://localhost:3001/orders?_sort=${fieldName}&_order=${order}`
-// 	);
-// 	return ordersWithSorted.data;
-// };
 export const getTopHeadLine = async () => {
 	// newsapi.org/v2/top-headlines?country=us&apiKey=
 	const res = await axios.get(

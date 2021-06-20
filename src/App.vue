@@ -8,15 +8,12 @@
 
 <script>
 import NewsList from '@/pages/NewsList.vue';
-import CustomNewsList from './pages/CustomNewsList.vue';
-import Profile from './pages/Profile.vue';
-import BaseTab from './components/UI/BaseTab.vue';
+import CustomNewsList from '@/pages/CustomNewsList.vue';
+import Profile from '@/pages/Profile.vue';
+import BaseTab from '@/components/UI/BaseTab.vue';
 export default {
 	name: 'App',
 	components: {
-		// NewsList,
-		// CustomNewsList,
-		// Profile,
 		BaseTab,
 	},
 	data() {
