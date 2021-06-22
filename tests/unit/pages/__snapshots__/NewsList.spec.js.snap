@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile Page Component Page Profile should render welcome page correctly 1`] = `
+<div class="top-headline-tab">
+  <div>
+    <h1>Top Headline News</h1>
+    <router-view-stub></router-view-stub>
+  </div>
+</div>
+`;

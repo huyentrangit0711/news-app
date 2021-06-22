@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`News Item Component Component renders correctly 1`] = `
+<div class="new-item shadow-2xl rounded">
+  <router-link-stub to="[object Object]"><img class="object-cover h-48 w-full">
+    <div class="content p-10">
+      <h1 class="text-xl">Mock title</h1>
+      <p class="description">
+        Mock description
+      </p>
+    </div>
+  </router-link-stub>
+</div>
+`;

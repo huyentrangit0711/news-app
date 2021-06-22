@@ -1,35 +1,56 @@
 import { getTopHeadLine, getNewsByQuery } from '../../../utilities/api';
-import { transformArticle } from '@/utilities/transform';
+import { transformArticles } from '@/utilities/transform';
+export const getters = {
+	getArticles(state) {
+		return state.articles;
+	},
+	getLoading(state) {
+		return state.loading;
+	},
+};
 export default {
 	namespaced: true,
 	state() {
 		return {
 			articles: [],
+			loading: false,
 		};
 	},
 	mutations: {
-		updateArticles(state, payload) {
-			const transformData = transformArticle(payload.value);
-			state.articles = transformData;
+		setArticles(state, payload) {
+			state.articles = payload.value;
+		},
+		setLoading(state, payload) {
+			state.loading = payload.value;
 		},
 	},
 	actions: {
-		async getTopHeadLineArticles(context) {
+		async getTopHeadLineArticles({ commit }) {
+			commit('setLoading', {
+				value: true,
+			});
 			const res = await getTopHeadLine();
-			context.commit('updateArticles', {
-				value: res.articles,
+			const transformData = transformArticles(res.articles);
+			commit('setArticles', {
+				value: transformData,
+			});
+			commit('setLoading', {
+				value: false,
 			});
 		},
-		async getNewsByQuery(context, query) {
+		async getNewsByQuery({ commit }, query) {
+			commit('setLoading', {
+				value: true,
+			});
 			const res = await getNewsByQuery(query);
-			context.commit('updateArticles', {
-				value: res.articles,
+			const transformData = transformArticles(res.articles);
+			commit('setArticles', {
+				value: transformData,
+			});
+			commit('setLoading', {
+				value: false,
 			});
 		},
 	},
-	getters: {
-		getArticles(state) {
-			return state.articles;
-		},
-	},
+	getters,
 };

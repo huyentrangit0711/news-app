@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`News List Component Component should render html correctly 1`] = `
+<div>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:grid-cols-2"></div>
+  <div>
+    <loading-stub></loading-stub>
+  </div>
+</div>
+`;

@@ -47,7 +47,9 @@ export default {
 		...mapActions(['updateActiveTabs']),
 		onActiveTab(index) {
 			this.updateActiveTabs({ value: index });
-			this.$router.push('/news');
+			if (this.$route.path !== '/news') {
+				this.$router.push('/news');
+			}
 		},
 	},
 };

@@ -22,7 +22,6 @@ export default {
 		};
 	},
 	mounted() {
-		// check get localstorage - show page user Details
 		this.username = localStorage.getItem('username');
 	},
 	methods: {

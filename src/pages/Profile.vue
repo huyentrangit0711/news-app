@@ -1,7 +1,10 @@
 <template>
 	<div class="profile-tab">
 		<h1>Profile</h1>
-		<register-form v-if="!isLoggedIn"></register-form>
+		<div class="register-form" v-if="!isLoggedIn">
+			<register-form v-if="!isLoggedIn"></register-form>
+		</div>
+
 		<welcome-page v-else></welcome-page>
 	</div>
 </template>
@@ -22,7 +25,6 @@ export default {
 	},
 	mounted() {
 		this.isLoggedIn = localStorage.getItem('username') !== null;
-		console.log(this.isLoggedIn);
 	},
 };
 

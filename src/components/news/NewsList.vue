@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<div
-			class="grid grid-cols-3 gap-4"
-			:v-show="articles && articles.length > 0"
+			class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:grid-cols-2"
+			:v-show="articles && articles.length > 0 && !loading"
 		>
 			<new-item
 				v-for="(article, index) in articles"
@@ -10,28 +10,24 @@
 				:article="article"
 			></new-item>
 		</div>
-		<div :v-show="loading">
-			Loadinbg
+		<div v-if="loading">
+			<Loading />
 		</div>
-		test
 	</div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import NewItem from './NewItem.vue';
+import Loading from '../UI/Loading.vue';
 export default {
 	name: 'NewsList',
 	components: {
 		NewItem,
-	},
-	data() {
-		return {
-			loading: false,
-		};
+		Loading,
 	},
 	computed: {
-		...mapGetters('news', { articles: 'getArticles' }),
+		...mapGetters('news', { articles: 'getArticles', loading: 'getLoading' }),
 		...mapGetters(['activeTab']),
 	},
 	methods: {

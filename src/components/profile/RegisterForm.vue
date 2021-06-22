@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full max-w-xs">
+	<div class="w-full">
 		<form
 			class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-9"
 			@submit.prevent="onSubmitHandler"
@@ -33,6 +33,9 @@
 					placeholder="******************"
 				/>
 			</div>
+			<p class="text-red-500 text-xs italic py-2 px-4" v-show="showError">
+				Please check username or password, it should not be empty.
+			</p>
 			<div class="flex items-center justify-between">
 				<button
 					class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -52,17 +55,17 @@ export default {
 	data() {
 		return {
 			username: '',
+			password: '',
+			showError: false,
 		};
 	},
 	methods: {
 		onSubmitHandler: function () {
-			if (!localStorage.getItem('profile')) {
+			this.showError = this.username === '' || this.password === '';
+			if (!localStorage.getItem('username')) {
 				localStorage.setItem('username', this.username);
 			}
 		},
-	},
-	mounted() {
-		// check get localstorage - show page user Details
 	},
 };
 </script>

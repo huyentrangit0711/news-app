@@ -1,14 +1,6 @@
 <template>
 	<div class="new-detail">
 		<h1 class="font-extrabold">{{ article.title }}</h1>
-		<p class="text-left italic">
-			Publish at:
-			{{
-				new Intl.DateTimeFormat(['ban', 'id']).format(
-					new Date(article.publishedAt)
-				)
-			}}
-		</p>
 		<img class="object-cover w-full" :src="article.urlToImage" />
 		<div class="description">
 			<p class="py-10">{{ article.content }}</p>
