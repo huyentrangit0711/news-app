@@ -2,7 +2,10 @@
 	<div class="profile-tab">
 		<h1>Profile</h1>
 		<div class="register-form" v-if="!isLoggedIn">
-			<register-form v-if="!isLoggedIn"></register-form>
+			<register-form
+				v-if="!isLoggedIn"
+				@trigger-auth="checkIsLogin"
+			></register-form>
 		</div>
 
 		<welcome-page v-else></welcome-page>
@@ -25,6 +28,11 @@ export default {
 	},
 	mounted() {
 		this.isLoggedIn = localStorage.getItem('username') !== null;
+	},
+	methods: {
+		checkIsLogin(value) {
+			this.isLoggedIn = value;
+		},
 	},
 };
 
