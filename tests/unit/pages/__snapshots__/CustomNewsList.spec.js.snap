@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Custom News List Page Component Page Custom News List should render correctly 1`] = `
+<div class="filter-news-tab">
+  <h1>Top Random News</h1>
+  <filters-stub></filters-stub>
+  <router-view-stub></router-view-stub>
+</div>
+`;

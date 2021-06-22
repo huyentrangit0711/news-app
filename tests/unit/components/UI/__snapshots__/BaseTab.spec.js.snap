@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseTab UI Component Component render correctly  1`] = `
+<div class="base-tab">
+  <nav class="tabs flex flex-col sm:flex-row"></nav>
+  <div id="panels"></div>
+</div>
+`;
