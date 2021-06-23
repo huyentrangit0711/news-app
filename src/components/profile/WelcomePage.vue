@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
 	name: 'WelcomePage',
 	components: {},
@@ -24,8 +25,10 @@ export default {
 		this.username = localStorage.getItem('username');
 	},
 	methods: {
+		...mapActions(['updateAuth']),
 		onLogOutHandler() {
 			localStorage.removeItem('username');
+			this.updateAuth({ value: false });
 		},
 	},
 };

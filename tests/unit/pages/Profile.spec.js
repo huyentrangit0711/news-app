@@ -1,24 +1,54 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Profile from '@/pages/Profile';
-
+import Vuex from 'vuex';
+const localVue = createLocalVue();
+localVue.use(Vuex);
 describe('Profile Page Component', () => {
-	jest.spyOn(window.localStorage.__proto__, 'setItem');
-	// render the component
 	let wrapper;
-	beforeEach(() => {});
+	let actions;
+	let store;
+	let getters;
+	let state;
+	beforeEach(() => {
+		jest.spyOn(window.localStorage.__proto__, 'setItem');
+		actions = {
+			updateAuth: jest.fn(),
+		};
+		state = {
+			isLoggedIn: false,
+		};
+		getters = {
+			isLoggedIn: () => jest.fn().mockReturnValue(true),
+		};
+		store = new Vuex.Store({
+			actions,
+			getters,
+			state,
+		});
+	});
 	afterEach(() => {
 		jest.clearAllMocks();
 	});
-	it('Page Profile should render welcome page correctly', () => {
+	it('Page Profile should render welcome page correctly', async () => {
 		jest
 			.spyOn(window.localStorage.__proto__, 'getItem')
 			.mockReturnValue({ username: 'localUser' });
-		wrapper = shallowMount(Profile);
-		expect(wrapper.vm.isLoggedIn).toEqual(true);
+		wrapper = shallowMount(Profile, {
+			localVue,
+			store,
+		});
+		await wrapper.vm.$nextTick();
+		expect(wrapper.vm.isLoggedIn()).toEqual(true);
 	});
-	it('"checkIsLogin" works correctly', () => {
-		wrapper = shallowMount(Profile);
-		wrapper.vm.checkIsLogin(true);
-		expect(wrapper.vm.isLoggedIn).toEqual(true);
+	it('Page Profile should render correctly if getting localStorage', async () => {
+		jest
+			.spyOn(window.localStorage.__proto__, 'getItem')
+			.mockReturnValue({ username: 'localUser' });
+		wrapper = shallowMount(Profile, {
+			localVue,
+			store,
+		});
+		await wrapper.vm.$nextTick();
+		expect(actions.updateAuth).toHaveBeenCalled();
 	});
 });

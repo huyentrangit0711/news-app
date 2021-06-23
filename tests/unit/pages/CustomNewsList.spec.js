@@ -40,12 +40,8 @@ describe('Custom News List Page Component', () => {
 			localVue,
 			stubs: ['router-link', 'router-view'],
 		});
-		wrapper.vm.$emit('filterChange', 123);
 		const FiltersComponent = wrapper.findComponent(Filters);
 		FiltersComponent.vm.$emit('filterChange', 'animal');
 		expect(actions.getNewsByQuery).toHaveBeenCalled();
-		// input.element.value = 'input';
-		// input.trigger('input');
-		// expect(actions.actionInput).toHaveBeenCalled();
 	});
 });
