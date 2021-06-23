@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
 	name: 'RegisterForm',
 	components: {},
@@ -61,11 +62,12 @@ export default {
 		};
 	},
 	methods: {
+		...mapActions(['updateAuth']),
 		onSubmitHandler: function () {
 			this.showError = this.username === '' || this.password === '';
 			if (!localStorage.getItem('username')) {
 				localStorage.setItem('username', this.username);
-				this.$emit('trigger-auth', true);
+				this.updateAuth({ value: true });
 			}
 		},
 	},
