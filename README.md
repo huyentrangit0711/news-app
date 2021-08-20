@@ -4,8 +4,10 @@
 ## Project setup
 ```
 yarn install
+
 ```
-## Setup environment variables for running application - in file .env (clone file .env.example to .env and follow changing as below)
+## Setup environment variables for running application - in file .env (clone file .env.example to .env and follow changing as below) abc
+ 
 ```
 
 VUE_APP_ENV_API_KEY="randomKey" - Key need to register by user on https://newsapi.org/
