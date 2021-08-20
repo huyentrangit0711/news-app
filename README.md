@@ -1,12 +1,12 @@
 # News App
 # News App is app display news with datasource from  https://newsapi.org/
 
-## Project setup
+## Project setup abc
 ```
 yarn install
 
 ```
-## Setup environment variables for running application - in file .env (clone file .env.example to .env and follow changing as below) abc
+## Setup environment variables for running application - in file .env (clone file .env.example to .env and follow changing as below) abc abca 
  
 ```
 

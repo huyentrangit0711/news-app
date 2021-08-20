@@ -1,6 +1,6 @@
 <template>
 	<div id="app" class="container mx-auto px-4">
-		<div class="bg-white">
+		<div class="bg-white test">
 			<base-tab :tabHeaders="tabHeaders" :tabContents="tabContents"></base-tab>
 		</div>
 	</div>
