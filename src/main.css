@@ -4,6 +4,7 @@
 @layer base {
   h1 {
     @apply text-4xl p-5;
+    font-size: 24px;
   }
   h2 {
     @apply text-3xl;
