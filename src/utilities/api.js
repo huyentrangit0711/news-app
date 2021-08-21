@@ -15,5 +15,6 @@ export const getNewsByQuery = async (query) => {
 			apiKey: process.env.VUE_APP_ENV_API_KEY,
 		},
 	});
+	console.log('res.data', res.data);
 	return res.data;
 };
