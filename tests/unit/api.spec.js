@@ -4,8 +4,8 @@ jest.mock('axios');
 afterEach(() => {
 	jest.clearAllMocks();
 });
-describe('API call for data source of News', () => {
-	it('getTopHeadLine should be called correctly', async () => {
+describe('API call for data source of News ADD TWO', () => {
+	it('getTopHeadLine should be called correctly test', async () => {
 		const resData = {
 			data: [
 				{
