@@ -2,7 +2,7 @@ import { transformArticles } from '@/utilities/transform';
 
 describe('Transform data article', () => {
 	Math.random = jest.fn(() => 0.5017997104152048);
-	it('transformArticles should be work correctly with articles array input', () => {
+	it('transformArticles should be work correctly with articles array input correctly', () => {
 		const mockArticles = [
 			{
 				title: 'Mock title',
